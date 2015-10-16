@@ -10,8 +10,8 @@ plugins {
 
 
 version = '3.6.1'
-group   = 'com.growcontrol.client.lab'
-mainClassName = 'com.growcontrol.client.lab.gcLab'
+group   = 'com.growcontrol.lab'
+mainClassName = 'com.growcontrol.lab.gcLab'
 defaultTasks 'clean', 'build', 'shadowJar', 'install'
 
 def miglayoutVersion = '5.0'
