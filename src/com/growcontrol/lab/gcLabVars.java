@@ -32,6 +32,8 @@ public class gcLabVars {
 			synchronized(configLock) {
 				if(config == null) {
 					config = (gcLabConfig) xConfigLoader.Load(
+							xLog.getRoot(),
+							null,
 							gcLabDefines.CONFIG_FILE,
 							gcLabConfig.class,
 							gcLab.class
