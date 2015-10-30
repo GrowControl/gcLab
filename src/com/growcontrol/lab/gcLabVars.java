@@ -3,7 +3,7 @@ package com.growcontrol.lab;
 import com.growcontrol.api.clientapi.apiClientDefines;
 import com.growcontrol.api.clientapi.configs.ProfilesConfig;
 import com.growcontrol.lab.configs.gcLabConfig;
-import com.poixson.commonapp.config.xConfigLoader;
+import com.poixson.commonapp.config.xConfig;
 import com.poixson.commonjava.Failure;
 import com.poixson.commonjava.Utils.Keeper;
 import com.poixson.commonjava.xLogger.xLog;
@@ -41,7 +41,7 @@ public class gcLabVars {
 		if(config == null) {
 			synchronized(configLock) {
 				if(config == null) {
-					config = (gcLabConfig) xConfigLoader.Load(
+					config = (gcLabConfig) xConfig.Load(
 							xLog.getRoot(),
 							null,
 							gcLabDefines.CONFIG_FILE,
@@ -68,7 +68,7 @@ public class gcLabVars {
 		if(profilesConfig == null) {
 			synchronized(configLock) {
 				if(profilesConfig == null) {
-					profilesConfig = (ProfilesConfig) xConfigLoader.Load(
+					profilesConfig = (ProfilesConfig) xConfig.Load(
 							xLog.getRoot(),
 							null,
 							apiClientDefines.PROFILES_FILE,
