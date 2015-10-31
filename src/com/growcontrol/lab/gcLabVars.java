@@ -4,6 +4,7 @@ import com.growcontrol.api.clientapi.apiClientDefines;
 import com.growcontrol.api.clientapi.configs.ProfilesConfig;
 import com.growcontrol.lab.configs.gcLabConfig;
 import com.poixson.commonapp.config.xConfig;
+import com.poixson.commonapp.config.xConfigException;
 import com.poixson.commonjava.Failure;
 import com.poixson.commonjava.Utils.Keeper;
 import com.poixson.commonjava.xLogger.xLog;
@@ -41,13 +42,18 @@ public class gcLabVars {
 		if(config == null) {
 			synchronized(configLock) {
 				if(config == null) {
-					config = (gcLabConfig) xConfig.Load(
-							xLog.getRoot(),
-							null,
-							gcLabDefines.CONFIG_FILE,
-							gcLabConfig.class,
-							gcLab.class
-					);
+					try {
+						config = (gcLabConfig) xConfig.Load(
+								xLog.getRoot(),
+								null,
+								gcLabDefines.CONFIG_FILE,
+								gcLabConfig.class,
+								gcLab.class
+						);
+					} catch (xConfigException e) {
+						xLog.getRoot().trace(e);
+						config = null;
+					}
 					if(config == null) {
 						Failure.fail("Failed to load "+gcLabDefines.CONFIG_FILE);
 						return null;
@@ -68,13 +74,18 @@ public class gcLabVars {
 		if(profilesConfig == null) {
 			synchronized(configLock) {
 				if(profilesConfig == null) {
-					profilesConfig = (ProfilesConfig) xConfig.Load(
-							xLog.getRoot(),
-							null,
-							apiClientDefines.PROFILES_FILE,
-							ProfilesConfig.class,
-							gcLab.class
-					);
+					try {
+						profilesConfig = (ProfilesConfig) xConfig.Load(
+								xLog.getRoot(),
+								null,
+								apiClientDefines.PROFILES_FILE,
+								ProfilesConfig.class,
+								gcLab.class
+						);
+					} catch (xConfigException e) {
+						xLog.getRoot().trace(e);
+						profilesConfig = null;
+					}
 					if(profilesConfig == null) {
 						Failure.fail("Failed to load "+apiClientDefines.PROFILES_FILE);
 						return null;
