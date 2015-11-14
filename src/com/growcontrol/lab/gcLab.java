@@ -1,16 +1,18 @@
 package com.growcontrol.lab;
 
 import java.io.PrintStream;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.fusesource.jansi.AnsiConsole;
 
+import com.growcontrol.lab.guiManager.GUI_MODE;
 import com.poixson.commonapp.app.xApp;
 import com.poixson.commonapp.app.annotations.xAppStep;
 import com.poixson.commonapp.app.annotations.xAppStep.StepType;
 import com.poixson.commonjava.xVars;
-import com.poixson.commonjava.Utils.utils;
 import com.poixson.commonjava.Utils.utilsString;
 
 
@@ -49,17 +51,11 @@ public class gcLab extends xApp {
 	 * Handle command-line arguments.
 	 */
 	@Override
-	protected void processArgs(final String[] args) {
-		if(utils.isEmpty(args)) return;
-		for(final String arg : args) {
+	protected void processArgs(final List<String> args) {
+		final Iterator<String> it = args.iterator();
+		while(it.hasNext()) {
+			final String arg = it.next();
 			switch(arg) {
-			case "--debug":
-				xVars.debug(true);
-				break;
-			default:
-				System.out.println("Unknown argument: "+arg);
-				System.exit(1);
-				break;
 			}
 		}
 	}
