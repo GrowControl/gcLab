@@ -4,7 +4,7 @@
 	"GroupId": "com.growcontrol.client",
 	"Version": "3.6.1",
 	"URL": "http://growcontrol.com",
-	"Github-Path": "GrowControl/GrowControl",
+	"Github-Path": "GrowControl/gcLab",
 	"Org-Name": "GrowControl",
 	"Main-Class": "com.growcontrol.client.lab.Main",
 	"Shade": "yes",
