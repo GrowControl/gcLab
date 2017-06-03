@@ -1,27 +1,23 @@
-package com.growcontrol.lab;
+package com.growcontrol.client.lab;
 
 import java.io.PrintStream;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
-
-import com.growcontrol.lab.guiManager.GUI_MODE;
-import com.poixson.commonapp.app.xApp;
-import com.poixson.commonapp.app.annotations.xAppStep;
-import com.poixson.commonapp.app.annotations.xAppStep.StepType;
-import com.poixson.commonjava.xVars;
-import com.poixson.commonjava.Utils.utilsString;
+import com.growcontrol.client.gcClient;
+import com.poixson.app.xApp;
+import com.poixson.utils.StringUtils;
+import com.poixson.utils.xLogger.xLog;
+import com.poixson.utils.xLogger.xLogPrintStream;
 
 
-public class gcLab extends xApp {
+public class gcLab extends gcClient {
 
 
 
 	/**
 	 * Get the client class instance.
-	 * @return client instance object.
+	 * @return gcLab instance object.
 	 */
 	public static gcLab get() {
 		return (gcLab) xApp.get();
@@ -29,33 +25,12 @@ public class gcLab extends xApp {
 
 
 
-	/**
-	 * Application start entry point.
-	 * @param args Command line arguments.
-	 */
-	public static void main(final String[] args) {
-		initMain(args, gcLab.class);
-	}
 	public gcLab() {
 		super();
-		if(xVars.debug())
-			this.displayColors();
-		this.displayLogo();
-	}
-
-
-
-	/**
-	 * Handle command-line arguments.
-	 */
-	@Override
-	protected void processArgs(final List<String> args) {
-		final Iterator<String> it = args.iterator();
-		while(it.hasNext()) {
-			final String arg = it.next();
-			switch(arg) {
-			}
-		}
+//TODO:
+//		if(xVars.debug())
+//			this.displayColors();
+//		this.displayLogo();
 	}
 
 
@@ -65,72 +40,25 @@ public class gcLab extends xApp {
 
 
 
-	// load config
-	@xAppStep(type=StepType.STARTUP, title="Config", priority=20)
-	public void __STARTUP_config() {
-		gcLabVars.getConfig();
-	}
-
-
-
-	// start gui
-	@xAppStep(type=StepType.STARTUP, title="GUI", priority=40)
-	public void __STARTUP_gui() {
-		guiManager.get();
-	}
-
-
-
-//	// load plugins
-//	@xAppStep(type=StepType.STARTUP, title="LoadPlugins", priority=50)
-//	public void __STARTUP_load_plugins() {
-//		final xPluginManager manager = xPluginManager.get();
-//		manager.setClassField("Client Main");
-//		manager.loadAll();
-//		manager.initAll();
+//	// start gui
+//	@xAppStep(type=StepType.STARTUP, title="GUI", priority=40)
+//	public void __STARTUP_gui() {
+//		guiManager.get();
 //	}
 
 
 
-//	// enable plugins
-//	@xAppStep(type=StepType.STARTUP, title="EnablePlugins", priority=55)
-//	public void __STARTUP_enable_plugins() {
-//		xPluginManager.get()
-//			.enableAll();
+//	// show login window
+//	@xAppStep(type=StepType.STARTUP, title="LoginWindow", priority=98)
+//	public void __STARTUP_login_window() {
+//		guiManager.get()
+//			.Show(GUI_MODE.LOGIN);
 //	}
-
-
-
-//	// scripts
-//	@xAppStep(type=StepType.STARTUP, title="Scripts", priority=95)
-//	public void __STARTUP_scripts() {
-//		final gcScriptManager manager = gcScriptManager.get();
-//		manager.loadAll();
-//		manager.StartAll();
-//	}
-
-
-
-	// show login window
-	@xAppStep(type=StepType.STARTUP, title="LoginWindow", priority=98)
-	public void __STARTUP_login_window() {
-		guiManager.get()
-			.Show(GUI_MODE.LOGIN);
-	}
 
 
 
 	// ------------------------------------------------------------------------------- //
 	// shutdown
-
-
-
-//	// scripts
-//	@xAppStep(type=StepType.SHUTDOWN, title="Scripts", priority=95)
-//	public void __SHUTDOWN_scripts() {
-//		gcScriptManager.get()
-//			.StopAll();
-//	}
 
 
 
@@ -142,32 +70,6 @@ public class gcLab extends xApp {
 //			manager.shutdown();
 //TODO:
 //		guiManager.Shutdown();
-//	}
-
-
-
-//	// sockets
-//	@xAppStep(type=StepType.SHUTDOWN, title="Sockets", priority=90)
-//	public void __SHUTDOWN_sockets() {
-//TODO:
-//	}
-
-
-
-//	// disable plugins
-//	@xAppStep(type=StepType.SHUTDOWN, title="DisablePlugins", priority=55)
-//	public void __SHUTDOWN_disable_plugins() {
-//		xPluginManager.get()
-//			.disableAll();
-//	}
-
-
-
-//	// unload plugins
-//	@xAppStep(type=StepType.SHUTDOWN, title="UnloadPlugins", priority=50)
-//	public void __SHUTDOWN_unload_plugins() {
-//		xPluginManager.get()
-//			.unloadAll();
 //	}
 
 
@@ -210,7 +112,6 @@ public class gcLab extends xApp {
 			}
 		}
 	}
-*/
 
 
 
@@ -293,6 +194,7 @@ public class gcLab extends xApp {
 //			return (String[]) zones.toArray();
 //		}
 //	}
+*/
 
 
 
@@ -442,7 +344,7 @@ public class gcLab extends xApp {
 		DisplayLineColors(out, COLOR_BG, colors10,"^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^/^"            );
 		DisplayLineColors(out, COLOR_BG, colors11,"/////////////////////////////////////////////////////////////////"            );
 		out.println();
-		out.println(" Copyright (C) 2007-2015 PoiXson, Mattsoft");
+		out.println(" Copyright (C) 2007-2017 PoiXson, Mattsoft");
 		out.println(" - Brainchild of the one known as lorenzo -");
 		out.println(" This program comes with absolutely no warranty. This is free software");
 		out.println(" and you are welcome to modify it or redistribute it under certain");
