@@ -1,7 +1,6 @@
-package com.growcontrol.lab;
+package com.growcontrol.client.lab;
 
 import com.poixson.utils.Keeper;
-import com.growcontrol.common.gcCommonDefines;
 
 
 public final class gcLabDefines {
@@ -10,17 +9,13 @@ public final class gcLabDefines {
 
 
 
-	// logger name
-	public static final String LOG_NAME = gcCommonDefines.LOG_NAME_CLIENT;
+//	// logger name
+//	public static final String LOG_NAME = gcCommonDefines.LOG_NAME_CLIENT;
 
+//	// defaults
 
-
-	// defaults
-
-
-
-	// lab config
-	public static final String CONFIG_FILE = "lab.yml";
+//	// lab config
+//	public static final String CONFIG_FILE = "lab.yml";
 
 
 
