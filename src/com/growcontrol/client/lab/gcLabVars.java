@@ -1,5 +1,6 @@
 package com.growcontrol.lab;
 
+import com.poixson.utils.Keeper;
 import com.growcontrol.api.clientapi.apiClientDefines;
 import com.growcontrol.api.clientapi.configs.ProfilesConfig;
 import com.growcontrol.lab.configs.gcLabConfig;
@@ -11,6 +12,8 @@ import com.poixson.commonjava.xLogger.xLog;
 
 
 public class gcLabVars {
+	private gcLabVars() {}
+	{ Keeper.add(new gcLabVars()); }
 
 	private static volatile gcLabVars instance = null;
 	private static final Object instanceLock = new Object();
@@ -21,19 +24,6 @@ public class gcLabVars {
 	private static ProfilesConfig profilesConfig = null;
 
 
-
-	public static void init() {
-		if(instance == null) {
-			synchronized(instanceLock) {
-				if(instance == null) {
-					instance = new gcLabVars();
-					Keeper.add(instance);
-				}
-			}
-		}
-	}
-	private gcLabVars() {
-	}
 
 
 

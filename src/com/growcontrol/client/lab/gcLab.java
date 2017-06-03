@@ -38,7 +38,6 @@ public class gcLab extends xApp {
 	}
 	public gcLab() {
 		super();
-		gcLabVars.init();
 		if(xVars.debug())
 			this.displayColors();
 		this.displayLogo();
